@@ -1,0 +1,154 @@
+/* NQueenProblem.css - Adapted from RateInMaze.css */
+
+.nqueen-container { /* Similar to .rat-in-maze-container */
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: grid; /* Changed to grid for overall layout */
+    grid-template-columns: minmax(300px, 70%) minmax(200px, 30%); /* Board and controls */
+    gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+}
+
+.controls {
+    /* margin-bottom: 20px; No longer needed with grid */
+    display: flex;
+    flex-direction: column; /* Stack controls vertically */
+    gap: 15px; /* Space between control groups */
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.controls div {
+    display: flex;
+    flex-direction: column; /* Stack label and input/select */
+    gap: 8px;
+}
+.controls div > label { /* Target labels directly inside the div */
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.controls div > input,
+.controls div > select,
+.controls div > span {
+     width: 100%; /* Make inputs/selects take full width of their container */
+}
+
+
+.controls input[type="number"],
+.controls input[type="range"],
+.controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-align: center;
+}
+
+.controls button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: #e9ecef; /* Default message background */
+    text-align: center;
+}
+
+.message:empty {
+    display: none;
+}
+
+.chessboard-grid {
+    display: grid;
+    border: 2px solid #333;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    /* Grid columns are set by inline style */
+    /* width: fit-content;
+    height: fit-content; */ /* Let the cells define the size */
+    margin: 0 auto; /* Center the board in its column */
+}
+
+.cell {
+    /* Width and height are set by inline style in JS for responsiveness */
+    border: 1px solid #eee; /* Lighter border for cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; /* Default font size for 'Q' or other symbols */
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.cell.light {
+    background-color: #f0d9b5; /* Light square color */
+}
+
+.cell.dark {
+    background-color: #b58863; /* Dark square color */
+}
+
+.cell.queen {
+    /* background-color: #ff4500; Orangered, will be on top of light/dark */
+    color: #111; /* Dark Queen on any square */
+    position: relative; /* For potential pseudo-elements or advanced styling */
+    background-image: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0.3) 100%); /* Subtle gradient on queen */
+}
+/* Example: if a queen is on a dark square, its specific background or text color can be adjusted if needed */
+/* .dark.queen { color: white; } */
+
+
+.cell.candidate {
+    background-color: rgba(173, 216, 230, 0.7); /* Light blueish tint for trying */
+    color: #333;
+}
+
+/* Optional: Style for attacked cells if visualization is added */
+.cell.attacked {
+    background-color: rgba(255, 0, 0, 0.3); /* Light red tint */
+}
+
+/* Adjust main container for N-Queen specific layout */
+.nqueen-container > div:first-child { /* The div containing message and chessboard */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center message and board */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Ensure solution navigation buttons are grouped nicely */
+.controls > button[onClick*="Solution"] {
+    margin-top: 5px; /* Add some space before these buttons if they appear */
+}
+.controls > span { /* For the (1/N) solution display */
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}

@@ -1,0 +1,111 @@
+/* BellmanFord.css */
+
+/* Overall container for the page */
+.container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+  background-color: #0d1117; /* Very dark background for the page (e.g., GitHub dark mode) */
+  color: #c9d1d9; /* Default light text color for readability */
+  padding: 20px;
+  text-align: center; /* Center align inline or inline-block children */
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+}
+
+/* Heading style */
+.container h1 {
+  color: #58a6ff; /* Light blue for the main title, good for dark themes */
+  margin-bottom: 25px;
+  font-size: 2.5rem; /* Larger font size for heading */
+}
+
+/* Paragraph explaining the theory */
+.theory {
+  max-width: 800px;
+  margin: 0 auto 30px auto; /* Center block and add bottom margin */
+  font-size: 1.1rem;
+  line-height: 1.6; /* Improved readability */
+  color: #adb5bd; /* Softer light gray for theory text */
+  text-align: left; /* Theory text is often better left-aligned for readability */
+}
+
+/* Canvas for graph visualization */
+canvas {
+  border: 2px solid #30363d; /* Darker, less stark border for dark theme */
+  background-color: #0f172a; /* Dark blue-gray, as originally set */
+  display: block; /* Removes extra space below canvas */
+  margin: 20px auto; /* Center the canvas */
+  border-radius: 8px; /* Rounded corners for the canvas */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* Controls area for buttons */
+.controls {
+  margin-bottom: 30px; /* Space below buttons before table */
+}
+
+.controls button {
+  padding: 12px 24px; /* Slightly larger padding for better click targets */
+  margin: 10px;
+  border: none;
+  border-radius: 6px; /* Consistent rounded corners */
+  background-color: #2ea043; /* A vibrant green (e.g., GitHub green) */
+  color: #ffffff; /* White text on green button for better contrast */
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
+}
+
+.controls button:hover {
+  background-color: #268839; /* Darker green on hover */
+}
+
+/* Optional: Style for disabled buttons if you plan to use them */
+.controls button:disabled {
+  background-color: #555;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* Table for displaying distances/paths */
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 700px; /* Max width for larger screens, prevents table from being too wide */
+  background-color: #161b22; /* Dark background, slightly different from page bg */
+  color: #c9d1d9; /* Light text for table content */
+  border-radius: 6px; /* Rounded corners for table */
+  overflow: hidden; /* To make border-radius work on table element */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+th,
+td {
+  border: 1px solid #30363d; /* Darker border, less vibrant than the original bright green */
+  padding: 12px 15px; /* Comfortable padding in cells */
+  text-align: center; /* Center align text in cells */
+}
+
+th {
+  background-color: #2ea043; /* Green header, consistent with buttons */
+  color: #ffffff; /* White text on green header */
+  font-size: 1.05rem; /* Slightly larger font for headers */
+}
+
+/* Optional: Alternating row colors for better readability in tables
+tbody tr:nth-child(even) {
+  background-color: #1c2128; // A slightly different dark shade
+}
+*/
+
+/* Complexity information */
+.complexity {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #8b949e; /* Muted light gray for complexity text */
+}
+
+.complexity strong {
+  color: #c9d1d9; /* Slightly more prominent color for the "Time Complexity:" label */
+}

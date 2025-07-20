@@ -1,0 +1,227 @@
+.activity-selection-visualizer {
+  display: grid;
+  grid-template-areas:
+    "controls inputs"
+    "message message"
+    "timeline timeline"
+    "results results";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 20px;
+  padding: 20px;
+  font-family: sans-serif;
+  min-height: calc(100vh - 140px); /* Adjust based on header/footer */
+  background-color: #f9f9f9;
+}
+
+/* Panel Styling */
+.controls-panel,
+.input-panel,
+.results-panel,
+.timeline-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.controls-panel { grid-area: controls; }
+.input-panel { grid-area: inputs; }
+.message-bar { grid-area: message; text-align: center; font-weight: bold; background-color: #e0e7ff; padding: 10px; border-radius: 5px; color: #3730a3;}
+.timeline-container { grid-area: timeline; min-height: 200px; position: relative; padding-top: 50px; } /* Add padding for axis */
+.results-panel { grid-area: results; }
+
+.activity-selection-visualizer h2,.activity-selection-visualizer h3 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+/* Controls */
+.controls-panel button,
+.input-panel button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.controls-panel button:hover,
+.input-panel button:hover {
+  background-color: #45a049;
+}
+
+.controls-panel button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.control-group {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group label {
+    font-weight: bold;
+}
+
+.control-group input[type="range"] {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.control-group button {
+    background-color: #e0e0e0;
+    color: #333;
+}
+.control-group button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Input Form */
+.input-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-panel input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Timeline */
+.timeline-axis {
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Match padding */
+  right: 20px; /* Match padding */
+  height: 20px;
+  border-bottom: 2px solid #555;
+}
+
+.timeline-marker {
+  position: absolute;
+  bottom: -10px; /* Position below the axis */
+  transform: translateX(-50%); /* Center the marker */
+  font-size: 10px;
+  color: #555;
+}
+.timeline-marker span {
+  position: absolute;
+  bottom: -15px; /* Position text below the marker line */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-marker::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  height: 10px; /* Height of the marker line */
+  background-color: #555;
+}
+
+.activities-area {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 50px); /* Adjust based on padding/axis */
+  margin-top: 10px; /* Space below axis */
+}
+
+.activity-bar {
+  position: absolute;
+  height: 30px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.5s ease, border 0.5s ease, transform 0.5s ease;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-bar.initial {
+  background-color: #007bff;
+  border-color: #0056b3;
+}
+
+.activity-bar.sorting {
+  background-color: #ffc107; /* Yellow */
+  border-color: #d39e00;
+  color: #333;
+  animation: pulse 0.7s infinite alternate;
+}
+
+.activity-bar.checking {
+  background-color: #fd7e14; /* Orange */
+  border-color: #c6620f;
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.activity-bar.selected {
+  background-color: #28a745; /* Green */
+  border-color: #1e7e34;
+  font-weight: bold;
+}
+
+.activity-bar.rejected {
+  background-color: #6c757d; /* Grey */
+  border-color: #5a6268;
+  opacity: 0.6;
+}
+
+/* Results */
+.results-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results-panel li {
+  background-color: #e9f5ee;
+  border: 1px solid #a3d9b8;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .activity-selection-visualizer {
+    grid-template-areas:
+      "controls"
+      "inputs"
+      "message"
+      "timeline"
+      "results";
+    grid-template-columns: 1fr;
+  }
+}

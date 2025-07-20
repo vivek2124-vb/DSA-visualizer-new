@@ -1,0 +1,189 @@
+.container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  background-color: #e8eaf6; /* Light lavender background */
+  color: #333; /* Default text color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #38bdf8; /* Sky blue */
+  text-align: center;
+}
+
+.grid-container {
+  width: 100%;
+  max-width: 1200px; /* Max width for larger screens */
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column */
+  gap: 20px; /* Gap between grid items */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .grid-container {
+    grid-template-columns: 1fr 1fr; /* Two columns for table and canvas */
+  }
+}
+
+canvas {
+  border: 2px solid #cbd5e1; /* Slate 300 border */
+  background: #ffffff; /* White background for the canvas */
+  margin-bottom: 20px;
+  width: 100%; /* Make canvas responsive */
+  border-radius: 8px; /* Rounded corners for the canvas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #38bdf8; /* Sky blue */
+  color: #ffffff; /* White text for better contrast */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background: #0ea5e9; /* Darker sky blue on hover */
+  transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+button:disabled {
+    background-color: #94a3b8; /* Slate 400 for disabled state */
+    color: #e2e8f0; /* Slate 200 for disabled text */
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden; /* To make border-radius work on the table */
+}
+
+td, th {
+  color: #334155; /* Slate 700 */
+  border: 1px solid #e2e8f0; /* Slate 200 for softer borders */
+  padding: 10px 12px;
+  text-align: left; /* Align text to left */
+}
+
+th {
+  background-color: #f1f5f9; /* Slate 100 for headers */
+  color: #0f172a; /* Slate 900 for header text */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f8fafc; /* Slate 50 for zebra striping */
+}
+
+tbody tr:hover {
+  background-color: #e0f2fe; /* Sky 100 on hover */
+}
+
+.complexity {
+  color: #475569; /* Slate 600 */
+  margin-top: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 15px;
+  background-color: #f1f5f9; /* Slate 100 background */
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px; /* Match grid container max-width */
+}
+
+/* Styles for input fields if we add them later */
+.input-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Message area for errors or info */
+.message-area {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+.message-error {
+    background-color: #fee2e2; /* Red-100 */
+    color: #b91c1c; /* Red-700 */
+    border: 1px solid #fecaca; /* Red-200 */
+}
+.message-info {
+    background-color: #e0f2fe; /* Sky-100 */
+    color: #0369a1; /* Sky-700 */
+    border: 1px solid #bae6fd; /* Sky-200 */
+}
+
+.path-highlight {
+    stroke: #16a34a; /* Green-600 for path */
+    stroke-width: 4px !important; /* Thicker line for path */
+    transition: stroke 0.3s ease-in-out, stroke-width 0.3s ease-in-out;
+}
+
+.node-current {
+    fill: #facc15 !important; /* Yellow-400 for current processing node */
+    stroke: #a16207 !important; /* Yellow-700 border */
+    stroke-width: 2px !important;
+}
+
+.node-visited-dijkstra {
+    fill: #a5b4fc !important; /* Indigo-300 for visited nodes in Dijkstra */
+}
+
+.edge-relaxed {
+    stroke: #fb923c !important; /* Orange-400 for relaxed edge */
+    stroke-width: 2.5px !important;
+}

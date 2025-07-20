@@ -1,0 +1,95 @@
+/* balanceTree.css */
+
+/* Main container for the entire visualizer page */
+.visualizer {
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+  background: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Header title style */
+.balanceTreeHeader {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #004d40;
+}
+
+/* Main content area wrapping the controls and canvas */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Container for user input and buttons */
+.questionArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Input field for nodes */
+.questionArea input {
+  flex: 1 1 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #00796b;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Buttons for actions like 'Random', 'Build', 'Reset' */
+.questionArea button {
+  padding: 10px 16px;
+  background-color: #00796b;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.questionArea button:hover {
+  background-color: #004d40;
+}
+
+/* Container for the tree visualization canvas */
+.canvasContainer {
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.canvasContainer canvas {
+  width: 100%;
+  height: 600px;
+  display: block;
+  background-color: #f5f5f5;
+}
+
+/* Overlay shown during tree construction animation */
+.loadingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /* Changed to 100% to be responsive */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  color: #004d40;
+  font-weight: bold;
+  display: flex;
+}

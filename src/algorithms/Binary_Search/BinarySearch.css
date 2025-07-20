@@ -1,0 +1,302 @@
+/* BinarySearch.css */
+/* General Container and Layout - similar to RatInMaze */
+.search-visualizer-container {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: grid;
+    /* Updated grid layout: Array Area | Controls & Code Box */
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 20px;
+    min-height: 80vh;
+}
+
+.main-content-area { /* Wrapper for array display and messages */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-area { /* Wrapper for controls and code visualization */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between controls and code box */
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.controls div {
+    display: flex;
+    flex-direction: column;
+    /* gap: 8px; */
+}
+
+.controls .flex_row{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    /* flex-direction: row; */
+    height: 50%;
+    width: 100%;
+    align-items: center;
+}
+
+.controls hr {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 5px 0;
+}
+
+.controls label {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.controls input[type="number"],
+.controls input[type="text"],
+.controls input[type="range"],
+.controls select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-array-input {
+    min-height: 40px;
+}
+
+
+.controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 5px;
+}
+.controls button.secondary { /* For less prominent actions like step mode toggle */
+    background-color: #6c757d;
+}
+.controls button.secondary:hover:not(:disabled) {
+    background-color: #5a6268;
+}
+
+
+.controls button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Message Styling */
+.message {
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #e9ecef;
+    color: #333;
+    min-height: 20px; /* Ensure it takes space even when empty for layout stability */
+}
+.message:empty {
+    /* display: none; /* Or keep it for layout stability */
+    padding: 0; /* Remove padding if empty */
+    min-height: 0;
+    margin:0;
+}
+.steps-message {
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Array Display Styling */
+.array-display-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.array-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px; /* Increased padding for arrow space */
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-height: 120px; /* Increased min-height for arrow */
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 20px; /* Space for arrow */
+}
+
+.array-cell {
+    width: 55px;
+    height: 70px;
+    border: 1px solid #b0bec5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Added opacity transition */
+    background-color: #ffffff;
+    border-radius: 4px;
+    position: relative; /* Needed for the arrow pseudo-element */
+}
+
+.array-cell .array-value {
+    font-size: 1.4em;
+    color: #333;
+}
+.array-cell .array-index {
+    font-size: 0.8em;
+    color: #757575;
+    margin-top: 4px;
+}
+
+/* Arrow for current cell (mid pointer) */
+.array-cell.current::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* Position arrow below the cell */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #2c3e50; /* Arrow color - dark blue/grey */
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+.array-cell:not(.current)::after { /* Hide arrow if not current */
+    opacity: 0;
+}
+
+/* Cell States */
+.array-cell.current { /* Mid Pointer */
+    background-color: #FFEB3B; /* Yellow */
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 235, 59, 0.7);
+}
+
+.array-cell.found {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.8);
+}
+.array-cell.found .array-value,
+.array-cell.found .array-index {
+    color: white;
+}
+
+.array-cell.visited {
+    background-color: #CFD8DC; /* Light Grey/Blue */
+}
+.array-cell.visited:not(.current):not(.found) {
+   opacity: 0.8;
+}
+
+/* New class for inactive range in Binary Search */
+.array-cell.inactive-range {
+    opacity: 0.4; /* Dim the cells outside the current search range */
+    /* background-color: #f5f5f5; /* Optional: slightly different background for inactive */
+}
+
+
+/* Code Visualization Box */
+.code-visualization-box {
+    background-color: #2c3e50; /* Dark background for code */
+    color: #ecf0f1; /* Light text color */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    overflow-x: auto; /* In case lines are too long */
+}
+
+.code-visualization-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #95a5a6; /* Subdued title color */
+    font-weight: normal;
+    border-bottom: 1px solid #34495e;
+    padding-bottom: 5px;
+}
+
+.code-line {
+    padding: 2px 5px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: pre-wrap; /* Allow wrapping but preserve spaces */
+    display: block; /* Ensure each line takes full width */
+}
+
+.code-line.highlighted {
+    background-color: #f1c40f; /* Yellow highlight */
+    color: #2c3e50; /* Dark text on highlight */
+    font-weight: bold;
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+    .search-visualizer-container {
+        grid-template-columns: 1fr; /* Stack main content and sidebar */
+    }
+    .main-content-area {
+        order: 1;
+    }
+    .sidebar-area {
+        order: 2;
+    }
+}
+@media (max-width: 768px) {
+    .array-cell {
+        width: 50px;
+        height: 65px;
+    }
+    .array-cell .array-value {
+        font-size: 1.2em;
+    }
+     .array-cell.current::after {
+        bottom: -12px;
+        border-left-width: 8px;
+        border-right-width: 8px;
+        border-top-width: 8px;
+    }
+    .code-visualization-box {
+        font-size: 0.85em;
+    }
+}

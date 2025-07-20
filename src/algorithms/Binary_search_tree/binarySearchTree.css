@@ -1,0 +1,136 @@
+:root {
+  --node-color: #43a047;
+  --node-text: #fff;
+  --button-bg: #43a047;
+  --button-hover-bg: #2e7d32;
+  --button-text: #fff;
+  --input-border: #43a047;
+  --input-focus-border: #2e7d32;
+  --background-color: #f0f0f0;
+  --header-bg: #2e7d32;
+  --header-text: #fff;
+}
+
+.binarySearchTreeHeader {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 16px;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+main {
+  max-width: 960px;
+  margin: 1rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.input-area,
+.search-area,
+.output-area,
+.complexity-area {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.input-area label,
+.search-area label {
+  flex: 1 0 160px;
+  font-weight: bold;
+}
+
+.input-area input,
+.search-area input {
+  flex: 2 1 200px;
+  padding: 0.5rem 0.6rem;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-area input:focus,
+.search-area input:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+}
+
+.input-area button,
+.search-area button {
+  flex: 1 0 130px;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-area button:hover,
+.search-area button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.canvas-area {
+  background-color: #fff;
+  border: 3px solid var(--input-border);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  height: 600px;
+}
+
+canvas#bstCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  outline: none;
+}
+
+.output-area h3,
+.complexity-area h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  flex-basis: 100%;
+}
+
+.output-area div {
+  font-size: 1.1rem;
+  color: #1b5e20;
+}
+
+.complexity-area p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .input-area,
+  .search-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .input-area label,
+  .search-area label,
+  .input-area button,
+  .search-area button,
+  .input-area input,
+  .search-area input {
+    flex: 1 0 auto;
+  }
+  .canvas-area {
+    height: 400px;
+  }
+}

@@ -1,0 +1,128 @@
+/* * {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c8e6c9, #a5d6a7);
+  color: #2e7d32;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} */
+.binaryTreeHeader {
+  background-color: #388e3c;
+  color: white;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.controls input[type="number"] {
+  width: 100px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 2px solid #388e3c;
+  font-size: 1rem;
+}
+.controls button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.controls button:hover:not(:disabled) {
+  background-color: #1b5e20;
+}
+.controls button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#canvasContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 400px;
+  background-color: #e8eaf6;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+th,
+td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #81c784;
+  color: white;
+  font-weight: 600;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+.complexity {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #dcedc8;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-weight: 600;
+  color: #33691e;
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  .controls input[type="number"] {
+    width: 100%;
+    max-width: 200px;
+  }
+  .controls button {
+    width: 100%;
+    max-width: 200px;
+  }
+}

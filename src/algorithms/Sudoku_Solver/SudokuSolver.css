@@ -1,0 +1,198 @@
+/* SudokuSolver.css */
+/* Inspired by RateInMaze.css theme */
+
+.sudoku-solver-container {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: auto 300px; /* Grid area and controls area */
+    gap: 20px;
+    align-items: start;
+}
+
+.sudoku-grid-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sudoku-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sudoku-controls div {
+    display: flex;
+    flex-direction: column; /* Stack label and input/select */
+    gap: 5px;
+}
+
+.sudoku-controls label {
+    font-weight: bold;
+    color: #333;
+}
+
+.sudoku-controls input[type="range"],
+.sudoku-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sudoku-controls button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 1em;
+}
+
+.sudoku-controls button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.sudoku-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.sudoku-controls button.active {
+    background-color: #28a745; /* Green for active state (e.g., custom input) */
+}
+.sudoku-controls button.active:hover:not(:disabled) {
+    background-color: #1f7a35;
+}
+
+
+.message {
+    margin-bottom: 15px; /* Space below message */
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    width: calc(9 * 40px + 8 * 1px + 2 * 3px); /* Match grid width */
+    box-sizing: border-box;
+}
+.message-dfs { background-color: #e7f3fe; color: #004085;}
+.message-bfs { background-color: #e2f0d9; color: #155724;}
+.message:empty { display: none; }
+
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px); /* 9 cells, 40px each */
+    grid-template-rows: repeat(9, 40px);    /* 9 cells, 40px each */
+    border: 3px solid #333; /* Outer border */
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: fit-content; /* Adjust to content size */
+}
+
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd; /* Light border for individual cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Thick borders for 3x3 subgrids */
+.sudoku-cell.thick-border-bottom {
+    border-bottom: 3px solid #333;
+}
+.sudoku-cell.thick-border-right {
+    border-right: 3px solid #333;
+}
+
+/* Cell Status Styling */
+.sudoku-cell.cell-status-empty {
+    background-color: #ffffff;
+    color: #777; /* Light color for potential input indication */
+}
+.sudoku-cell.cell-status-prefilled {
+    background-color: #e9ecef; /* Light grey for prefilled numbers */
+    color: #2c3e50; /* Darker color for prefilled numbers */
+    font-weight: bold;
+}
+.sudoku-cell.cell-status-current-dfs {
+    background-color: #ffe0b2; /* Light orange for current DFS cell */
+    box-shadow: inset 0 0 5px #ff9800;
+}
+.sudoku-cell.cell-status-trying-dfs {
+    background-color: #c8e6c9; /* Light green for trying a number in DFS */
+    color: #2e7d32;
+}
+.sudoku-cell.cell-status-backtracking-dfs {
+    background-color: #ffcdd2; /* Light red for backtracking */
+    color: #c62828;
+    animation: blink 0.5s ease-in-out;
+}
+
+.sudoku-cell.cell-status-current-bfs-scan { /* Cell being scanned in current BFS board */
+    background-color: #b3e5fc; /* Light blue for BFS current cell */
+    box-shadow: inset 0 0 5px #03a9f4;
+}
+.sudoku-cell.cell-status-trying-bfs { /* Number being tried to generate next state */
+     background-color: #d1c4e9; /* Light purple */
+     color: #4527a0;
+}
+.sudoku-cell.cell-status-current-bfs-fill { /* A cell that was filled in a previous BFS step, on current board */
+    background-color: #fff9c4; /* Light yellow */
+    color: #795548;
+}
+
+
+.sudoku-cell.cell-status-solved {
+    background-color: #a5d6a7; /* Softer green for solved cells */
+    color: #1b5e20;
+    animation: popInSolved 0.3s ease-out;
+}
+
+.sudoku-cell.selected-for-input {
+    background-color: #e0f7fa; /* Very light cyan when cell is selected for input */
+    box-shadow: 0 0 0 2px #007bff inset;
+}
+
+.cell-input {
+    width: 90%;
+    height: 90%;
+    border: none;
+    text-align: center;
+    font-size: 1em; /* Match cell font size */
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    color: #3f51b5; /* Distinct color for user input */
+}
+.cell-input:disabled {
+    color: #2c3e50; /* Same as prefilled if disabled */
+}
+
+
+/* Animations */
+@keyframes popInSolved {
+    0% { transform: scale(0.7); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes blink {
+    0%, 100% { background-color: #ffcdd2; }
+    50% { background-color: #ef9a9a; }
+}

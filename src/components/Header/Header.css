@@ -1,0 +1,126 @@
+header {
+  background-color: #2e4053;
+  color: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  padding: 1px 0px;
+}
+
+/* logo title */
+.logoTitle{
+  text-align: center;
+  /* border: 2px dotted white; */
+  border: 2px outset white;
+  padding: 10px;
+  line-height: 80%;
+  position: relative;
+  overflow: hidden;
+  h2{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  h6{
+    font-size: 18px;
+  }
+  
+}
+.logoTitle::before{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 20%;
+  height: 100%;
+  background-color:white;
+  transform: skew(-50deg) translateX(-320%);
+  transition: all 400ms ease-in-out;
+}
+
+.logoTitle:hover::before{
+  cursor: default;
+  transform: skew(-50deg) translateX(730%);
+}
+
+
+
+/* nav links title */
+header  p{
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 100ms linear;
+  caret-color: transparent;
+}
+
+header  p:hover{
+  cursor:default;
+  background-color: aliceblue;
+  color: black;
+  cursor: pointer;
+}
+
+
+
+header li, header a{
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+
+/* nav links dropdown */
+.nav_items{
+  position: relative;
+  font-size: 20px;
+}
+
+.nav_items>ul{
+  display: none;
+  text-decoration: none;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav_items>ul ul{
+  left: -4%;
+  top: 0;
+  transform: translateX(-100%);
+}
+
+.nav_items ul{
+  padding: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #1c283374;
+  backdrop-filter: blur(10px);
+  border: 1px solid #17B492;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  
+}
+
+.nav_items ul li{
+  padding: 5px;
+  text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_items ul li a{
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+.nav_items ul li:hover a{
+  background-color: #17B492;
+}

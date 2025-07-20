@@ -1,0 +1,67 @@
+    .avl-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .avl-header {
+    background: #2e7d32;
+    color: white;
+    /* padding: 1rem 2rem; */
+    text-align: center;
+    width: 100%;
+  }
+  
+  .section {
+    max-width: 900px;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .btn {
+    background: #388e3c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  
+  .btn:hover {
+    background: #2e7d32;
+  }
+  
+  #treeCanvas {
+    border: 1px solid #ccc;
+    background: white;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th,
+  td {
+    border: 1px solid #aaa;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  th {
+    background: #e0e0e0;
+  }
+  
+  @media (max-width: 600px) {
+    #treeCanvas {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  

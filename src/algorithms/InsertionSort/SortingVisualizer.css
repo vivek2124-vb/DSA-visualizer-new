@@ -1,0 +1,298 @@
+/* SortingVisualizer.css */
+/* General theme adapted from RateInMaze.css and new style.css */
+.sorting-visualizer-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif; /* From original style.css */
+    background-color: #f0f0f0; /* Theme background */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.controls-panel {
+    background-color: #ffffff; /* Theme controls background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-group p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.control-group input[type="range"] {
+    accent-color: #007bff; /* Themed accent */
+    flex-grow: 1; /* Allow slider to take space */
+    min-width: 80px;
+}
+.control-group span {
+    min-width: 25px;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.control-group input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+    width: 150px; /* From original style.css .array-inputs input[type="text"] width: 80px; but seems small */
+}
+
+.controls-panel button, .run-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Theme button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 0.9em;
+}
+
+.controls-panel button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+.controls-panel button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.control-group.algos button {
+    background-color: #f0f0f0; /* Lighter for unselected algos */
+    color: #333;
+    border: 1px solid #ccc;
+}
+.control-group.algos button.butt_selected {
+    background-color: #28a745; /* Green for selected algo (theme color) */
+    color: white;
+    border-color: #28a745;
+}
+.control-group.algos button:hover:not(:disabled):not(.butt_selected) {
+    background-color: #e0e0e0;
+}
+
+
+.run-button {
+    background-color: #dc3545; /* A different color for the main run button */
+    padding: 10px 15px;
+    font-size: 1em;
+    margin-top: 5px;
+}
+.run-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+
+#array_container_main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Stack array and aux arrays */
+    background-color: #e8eaf6; /* From original style.css #array_container */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 300px; /* Minimum height for visualization */
+    margin-bottom: 15px;
+}
+
+#array_container {
+    display: flex;
+    align-items: flex-end; /* Bars grow upwards */
+    justify-content: center; /* Center bars if not full width */
+    height: 70%; /* Main array takes most of the space */
+    min-height: 250px;
+    gap: 2px; /* Spacing between bar wrappers */
+    overflow: hidden; /* Hide overflow if too many bars */
+    width: 100%;
+    position: relative;
+}
+
+.bar-wrapper {
+    flex-grow: 1; /* Distribute space among bars */
+    display: flex;
+    flex-direction: column-reverse; /* Value at bottom, bar grows up */
+    align-items: center;
+    text-align: center;
+    min-width: 4px; /* Minimum width for a bar to be visible */
+    max-width: 50px; /* Max width to prevent very wide bars */
+}
+
+.bar {
+    width: 100%; /* Bar takes full width of its wrapper */
+    background-color: yellowgreen;
+    transition: height 0.15s ease, background-color 0.15s ease; /* Smooth transitions */
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.bar-value {
+    font-size: 0.7em;
+    color: #333;
+    margin-bottom: 2px; /* Space between value and bar */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+
+.info-panel {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+#Info_Cont1, #Info_Cont2 {
+    flex: 1;
+    padding: 15px;
+    background-color: white; /* From original style.css */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#Info_Cont1 h3, #Info_Cont2 h3 { /* From original style.css */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #007bff; /* Themed color */
+    text-decoration: underline;
+    font-size: 1.1em;
+}
+
+.Complexity_Containers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Pair_Definitions { /* From original style.css */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+.Pair_Definitions .Sub_Heading {
+    font-weight: bold;
+    color: #555;
+}
+.Pair_Definitions p {
+    margin: 0;
+}
+
+
+.message-display {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9ecef; /* Light grey for messages */
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+.message-display:empty {
+    display: none;
+}
+
+/* Auxiliary array styling for Counting/Radix Sort */
+.aux-array-container {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+.aux-array-container p {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.aux-array {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.aux-cell {
+    min-width: 25px;
+    padding: 3px 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 0.75em;
+    text-align: center;
+}
+.aux-cell.highlight {
+    background-color: var(--bar-color-comparing, #FFC107); /* Use CSS var or direct */
+    font-weight: bold;
+}
+.aux-cell.sum-highlight {
+    background-color: var(--bar-color-swapping, #F48FB1);
+    font-weight: bold;
+}
+.aux-cell.output-highlight {
+    background-color: var(--bar-color-sorted, #66BB6A);
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Bucket Sort Specific Styling */
+.buckets-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap; /* Allow buckets to wrap */
+    gap: 10px;
+    align-items: flex-start; /* Align buckets to the top */
+}
+.buckets-container > p { /* Title for buckets section */
+    width: 100%;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.bucket {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #ecf0f1;
+    min-width: 60px; /* Minimum width for a bucket */
+}
+.bucket.active-bucket {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+.bucket-label {
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-align: center;
+    color: #2c3e50;
+}
+.bucket-elements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+    min-height: 20px; /* So empty buckets are visible */
+}
+.bucket-element {
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    padding: 2px 4px;
+    font-size: 0.7em;
+    border-radius: 2px;
+}

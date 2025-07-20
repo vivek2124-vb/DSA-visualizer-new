@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #fff);
+    margin: 0;
+    padding: 0;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 20px;
+    color: #2e7d32;
+  }
+  
+  textarea {
+    width: 90%;
+    max-width: 600px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border: 2px solid #2e7d32;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e7d32;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #1b5e20;
+  }
+  
+  #outputCanvas {
+    border: 2px solid #333;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 10px;
+  }
+  
+  table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 600px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  thead {
+    background-color: #2e7d32;
+    color: white;
+  }
+  
+  #complexity {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+  }
+  

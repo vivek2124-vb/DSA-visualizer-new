@@ -1,0 +1,171 @@
+/* StrassenMatrixMultiplication.css */
+.strassen-container {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.strassen-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.controls-area {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.controls-area > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.controls-area label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+.controls-area input[type="number"],
+.controls-area input[type="range"] {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.controls-area input[type="number"] {
+    width: 60px;
+}
+.controls-area button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.controls-area button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+.controls-area button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.step-description-area {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-style: italic;
+    min-height: 2em;
+    border: 1px solid #ced4da;
+}
+
+.main-matrices-area {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.matrix-container {
+    background-color: #fff; /* Default background for the container box */
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #ddd;
+    min-width: 120px; 
+    flex: 1; /* Allow flex grow/shrink for main matrices */
+    max-width: 250px; /* Prevent very large main matrices from dominating */
+}
+.scratchpad-area .matrix-container {
+    flex-basis: 150px; /* Fixed basis for scratchpad items */
+    flex-grow: 0;
+}
+
+.matrix-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+.matrix-grid {
+    display: grid;
+    gap: 1px; /* Very small gap for cell borders to show */
+    border: 1px solid #eee;
+}
+.matrix-cell {
+    min-width: 25px;
+    height: 25px; /* Fixed height for cells */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Base Backgrounds from STYLE_TYPE */
+.matrix-cell.matrix-a-bg { background-color: #e3f2fd; } /* Light Blue */
+.matrix-cell.matrix-b-bg { background-color: #e8f5e9; } /* Light Green */
+.matrix-cell.result-c-bg { background-color: #fff3e0; } /* Light Orange for C */
+.matrix-cell.product-term-highlight { background-color: #ffe0b2; border: 1px dashed #ffb74d; } /* For P terms in scratchpad */
+.matrix-cell.intermediate-highlight { background-color: #e1f5fe; border: 1px dashed #4fc3f7;} /* For S terms in scratchpad */
+.matrix-cell.sub-c-highlight { background-color: #fffde7; border: 1px dashed #fff59d;} /* For C subs in scratchpad */
+.matrix-cell.default { background-color: #f9f9f9; }
+
+/* Dynamic Highlighting Styles based on operation */
+.matrix-cell.sub-a-highlight { background-color: #bbdefb; border: 1px solid #90caf9; }
+.matrix-cell.sub-b-highlight { background-color: #c8e6c9; border: 1px solid #a5d6a7; }
+.matrix-cell.operand-highlight { background-color: #d1c4e9; border: 2px solid #9575cd; box-sizing: border-box; } /* Purple-ish */
+.matrix-cell.final-cell-highlight { background-color: #a5d6a7; border: 2px solid #66bb6a; font-weight: bold;} /* Greenish for final C cells */
+
+
+.scratchpad-area {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #fdfdff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+.scratchpad-area h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #444;
+}
+.scratchpad-area h3 {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+}
+.intermediate-section {
+    margin-bottom: 15px;
+}
+.intermediate-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start; /* Align items to start */
+}
+
+/* Specific container styling for highlighting purposes */
+.matrix-container.operand-highlight-container {
+    border: 2px solid #9575cd !important; /* Purple-ish */
+}
+.matrix-container.product-term-highlight-container {
+    border: 2px solid #ffb74d !important; /* Orange-ish */
+}
+/* ... etc. for other container-level highlights if needed ... */
