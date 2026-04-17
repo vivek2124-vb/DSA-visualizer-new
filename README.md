@@ -1,12 +1,60 @@
-# React + Vite
+# DSA Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive **Data Structures and Algorithms Visualizer** built with **React + Vite** to help students and beginners understand how algorithms work through step-by-step animations and visual representation.
 
-Currently, two official plugins are available:
+## Preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+DSA Visualizer is designed to make learning algorithms easier by showing their execution visually instead of only through code.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Interactive visualization of algorithms
+- Clean and responsive user interface
+- Step-by-step animation for better understanding
+- Beginner-friendly learning experience
+- Fast development setup using Vite
+- Modular project structure for easy scalability
+
+## Algorithms Included
+
+This project includes visualizations for multiple algorithms such as:
+
+### Sorting Algorithms
+- Bubble Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+- Heap Sort
+- Counting Sort
+- Radix Sort
+
+### Searching Algorithms
+- Linear Search
+- Binary Search
+
+### Backtracking / Recursion
+- Sudoku Solver
+- Rat in the Maze
+- Subset Sum
+
+### Graph / Advanced Algorithms
+- Dijkstra’s Algorithm
+- Strassen Matrix Multiplication
+
+## Tech Stack
+
+- **Frontend:** React.js
+- **Build Tool:** Vite
+- **Styling:** CSS
+- **Language:** JavaScript
+- **Package Manager:** npm
+
+## Project Structure
+
+```bash
+src/
+│── assets/                # Images, logo, animations, media
+│── components/            # Reusable UI components
+│── algorithms/            # Individual algorithm visualizers
+│── App.jsx
+│── main.jsx
