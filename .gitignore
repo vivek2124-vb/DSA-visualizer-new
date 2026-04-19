@@ -6,3 +6,4 @@ build/
 .env.local
 src/assets/*.webm
 src/assets/loader.webm
+node_modules/
