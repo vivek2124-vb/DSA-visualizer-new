@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./PrimsAlgirithms.css";
+import "./primsAlgirithms.css";
 
 const PrimsAlgirithms = () => {
   const canvasRef = useRef(null);
