@@ -6,7 +6,7 @@ import Loader from "./components/Loader/Loader";
 // --- All your React.lazy imports remain the same ---
 // const Hero = React.lazy(() => import("./components/hero/Hero"));
 const ActivitySelection = React.lazy(() => import("./algorithms/Activity_Selection/activitySelection"));
-const BellmanFord = React.lazy(() => import("./algorithms/Bellman_Ford/BellmanFord"));
+const BellmanFord = React.lazy(() => import("./algorithms/Bellman_Ford/bellmanFord"));
 const BinarySearch = React.lazy(() => import("./algorithms/Binary_Search/BinarySearch"));
 const BreadthFirstSearch = React.lazy(() => import("./algorithms/Breadth_First_Search/BreadthFirstSearch"));
 const BubbleSort = React.lazy(() => import("./algorithms/BubbleSort/BubbleSort"));
